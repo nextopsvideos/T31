@@ -29,7 +29,7 @@ metadata:
   labels:
     app: httpd
 spec:
-  type: LoadBalancer
+  type: LoadBalancer #Layer4
   selector: 
     app: httpd 
   ports:

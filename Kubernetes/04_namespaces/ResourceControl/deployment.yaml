@@ -1,0 +1,45 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: nginx-deploy-rq
+  labels:
+    app: nginx
+  namespace: devops-team
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx  
+          image: nginx 
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"       #less than or equal to whatever mentioned in limitrange
+              memory: "100Mi"   #less than or equal to whatever mentioned in limitrange
+            limits:
+              cpu: "200m"       #less than or equal to whatever mentioned in limitrange
+              memory: "200Mi"   #less than or equal to whatever mentioned in limitrange
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: nginx-service-rq
+  labels:
+    app: nginx
+  namespace: devops-team
+spec:
+  selector:
+    app: nginx
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
