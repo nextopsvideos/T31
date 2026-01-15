@@ -8,7 +8,7 @@ terraform {
     }
   }
   backend "azurerm" {
-    access_key           = "N01roI+CYAOcEycYJkD8AN1wqK+WgvOgCW9G19h9VcuCUkoBnWUJjF/MIjbCxU2TXMFRD6AXhICx+AStsnMFNQ=="  # Can also be set via `ARM_ACCESS_KEY` environment variable.
+    access_key           = "dfkjkasdjfkjakfjakdsjkfdjkakdjf"  # Can also be set via `ARM_ACCESS_KEY` environment variable.
     storage_account_name = "nextopstfsat31"                                 # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
     container_name       = "tfstate"                                  # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
     key                  = "terraform.tfstate"                   # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
