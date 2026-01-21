@@ -7,17 +7,11 @@ terraform {
       version = "=4.57.0"
     }
   }
-  backend "azurerm" {
-    access_key           = "asdnfkjakdjkajkfjdkfjkajfkdajkjak"
-    storage_account_name = "nextopstfsat31"                                 
-    container_name       = "modules"                                 
-    key                  = "DEV/terraform.tfstate"                  
-  }
 }
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-  resource_provider_registrations = "none" 
+  resource_provider_registrations = "none" # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
   subscription_id = "a355c32e-4a22-4b05-aab4-be236850fa6e"
 }
